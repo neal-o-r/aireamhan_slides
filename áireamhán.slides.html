@@ -11853,22 +11853,7 @@ a.anchor-link {
 
 <div class="reveal">
 <div class="slides">
-<aside class="notes">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-</aside><section><section>
+<section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12026,37 +12011,28 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kt">DOUBLE PRECISION </span><span class="n">DTEMP</span>
-      <span class="kt">INTEGER </span><span class="n">I</span><span class="p">,</span><span class="n">IX</span><span class="p">,</span><span class="n">IY</span>
-<span class="o">*</span>     <span class="p">..</span>
-      <span class="k">IF</span> <span class="p">(</span><span class="n">N</span><span class="p">.</span><span class="n">LE</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">RETURN</span>
-<span class="k">      IF</span> <span class="p">(</span><span class="n">INCX</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="mi">1</span> <span class="p">.</span><span class="nb">AND</span><span class="p">.</span> <span class="n">INCY</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="n">GO</span> <span class="n">TO</span> <span class="mi">20</span>
-<span class="o">*</span>
-<span class="o">*</span>       <span class="n">code</span> <span class="n">for</span> <span class="n">unequal</span> <span class="n">increments</span> <span class="nb">or </span><span class="n">equal</span> <span class="n">increments</span> <span class="nb">not </span><span class="n">equal</span>
-<span class="o">*</span>         <span class="n">to</span> <span class="mi">1</span>
-<span class="o">*</span>
-      <span class="n">IX</span> <span class="o">=</span> <span class="mi">1</span>
-      <span class="n">IY</span> <span class="o">=</span> <span class="mi">1</span>
-      <span class="k">IF</span> <span class="p">(</span><span class="n">INCX</span><span class="p">.</span><span class="n">LT</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="n">IX</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">INCX</span> <span class="o">+</span> <span class="mi">1</span>
-      <span class="k">IF</span> <span class="p">(</span><span class="n">INCY</span><span class="p">.</span><span class="n">LT</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="n">IY</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">INCY</span> <span class="o">+</span> <span class="mi">1</span>
-      <span class="k">DO </span><span class="mi">10</span> <span class="n">I</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">N</span>
-          <span class="n">DTEMP</span> <span class="o">=</span> <span class="n">C</span><span class="o">*</span><span class="n">DX</span><span class="p">(</span><span class="n">IX</span><span class="p">)</span> <span class="o">+</span> <span class="n">S</span><span class="o">*</span><span class="n">DY</span><span class="p">(</span><span class="n">IY</span><span class="p">)</span>
-          <span class="n">DY</span><span class="p">(</span><span class="n">IY</span><span class="p">)</span> <span class="o">=</span> <span class="n">C</span><span class="o">*</span><span class="n">DY</span><span class="p">(</span><span class="n">IY</span><span class="p">)</span> <span class="o">-</span> <span class="n">S</span><span class="o">*</span><span class="n">DX</span><span class="p">(</span><span class="n">IX</span><span class="p">)</span>
-          <span class="n">DX</span><span class="p">(</span><span class="n">IX</span><span class="p">)</span> <span class="o">=</span> <span class="n">DTEMP</span>
-          <span class="n">IX</span> <span class="o">=</span> <span class="n">IX</span> <span class="o">+</span> <span class="n">INCX</span>
-          <span class="n">IY</span> <span class="o">=</span> <span class="n">IY</span> <span class="o">+</span> <span class="n">INCY</span>
-   <span class="mi">10</span> <span class="k">CONTINUE</span>
-<span class="k">      RETURN</span>
-<span class="o">*</span>
-<span class="o">*</span>       <span class="n">code</span> <span class="n">for</span> <span class="n">both</span> <span class="n">increments</span> <span class="n">equal</span> <span class="n">to</span> <span class="mi">1</span>
-<span class="o">*</span>
-   <span class="mi">20</span> <span class="k">DO </span><span class="mi">30</span> <span class="n">I</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">N</span>
-          <span class="n">DTEMP</span> <span class="o">=</span> <span class="n">C</span><span class="o">*</span><span class="n">DX</span><span class="p">(</span><span class="n">I</span><span class="p">)</span> <span class="o">+</span> <span class="n">S</span><span class="o">*</span><span class="n">DY</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
-          <span class="n">DY</span><span class="p">(</span><span class="n">I</span><span class="p">)</span> <span class="o">=</span> <span class="n">C</span><span class="o">*</span><span class="n">DY</span><span class="p">(</span><span class="n">I</span><span class="p">)</span> <span class="o">-</span> <span class="n">S</span><span class="o">*</span><span class="n">DX</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
-          <span class="n">DX</span><span class="p">(</span><span class="n">I</span><span class="p">)</span> <span class="o">=</span> <span class="n">DTEMP</span>
-   <span class="mi">30</span> <span class="k">CONTINUE</span>
-<span class="k">      RETURN</span>
-<span class="k">END</span>
+<div class="highlight"><pre><span></span><span class="n">C</span><span class="p">;</span> <span class="k">PROGRAM </span><span class="n">TO</span> <span class="n">SOLVE</span> <span class="n">THE</span> <span class="n">QUADRATIC</span> <span class="n">EQUATION</span>
+      <span class="k">READ </span><span class="mi">10</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">C</span>
+      <span class="n">DISC</span> <span class="o">=</span> <span class="n">B</span><span class="o">*</span><span class="n">B</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">A</span><span class="o">*</span><span class="n">C</span>
+      <span class="k">IF</span> <span class="p">(</span><span class="n">DISC</span><span class="p">)</span> <span class="mi">15</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">35</span>
+  <span class="mi">15</span><span class="p">;</span> <span class="n">R</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">B</span><span class="o">/</span><span class="n">A</span>
+      <span class="n">AI</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">SQTF</span><span class="p">(</span><span class="mf">0.0</span><span class="o">-</span><span class="n">DISC</span><span class="p">)</span><span class="o">/</span><span class="n">A</span>
+      <span class="k">PRINT </span><span class="mi">11</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="n">AI</span>
+      <span class="n">GO</span> <span class="n">TO</span> <span class="mi">99</span>
+  <span class="mi">25</span><span class="p">;</span> <span class="n">R</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">B</span><span class="o">/</span><span class="n">A</span>
+      <span class="k">PRINT </span><span class="mi">21</span><span class="p">,</span><span class="n">R</span>
+      <span class="n">GO</span> <span class="n">TO</span> <span class="mi">99</span>
+  <span class="mi">35</span><span class="p">;</span> <span class="n">SD</span> <span class="o">=</span> <span class="n">SQTF</span><span class="p">(</span><span class="n">DISC</span><span class="p">)</span>
+      <span class="n">R1</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">SD</span><span class="o">-</span><span class="n">B</span><span class="p">)</span><span class="o">/</span><span class="n">A</span>
+      <span class="n">R2</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="mf">0.0</span><span class="o">-</span><span class="p">(</span><span class="n">B</span><span class="o">+</span><span class="n">SD</span><span class="p">))</span><span class="o">/</span><span class="n">A</span>
+      <span class="k">PRINT </span><span class="mi">31</span><span class="p">,</span><span class="n">R2</span><span class="p">,</span><span class="n">R1</span>
+  <span class="mi">99</span><span class="p">;</span> <span class="k">STOP</span>
+<span class="k">  </span><span class="mi">10</span><span class="p">;</span> <span class="k">FORMAT</span><span class="p">(</span> <span class="mi">3</span><span class="n">F12</span><span class="p">.</span><span class="mi">5</span> <span class="p">)</span>
+  <span class="mi">11</span><span class="p">;</span> <span class="k">FORMAT</span><span class="p">(</span> <span class="mi">19</span><span class="n">H</span> <span class="n">TWO</span> <span class="kt">COMPLEX </span><span class="n">ROOTS</span><span class="p">:,</span> <span class="n">F12</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span><span class="mi">14</span><span class="n">H</span> <span class="n">PLUS</span> <span class="nb">OR </span><span class="n">MINUS</span><span class="p">,</span> <span class="err">&#39;</span>
+      <span class="n">F12</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="n">H</span> <span class="n">I</span> <span class="p">)</span>
+  <span class="mi">21</span><span class="p">;</span> <span class="k">FORMAT</span><span class="p">(</span> <span class="mi">15</span><span class="n">H</span> <span class="n">ONE</span> <span class="kt">REAL </span><span class="n">ROOT</span><span class="p">:,</span> <span class="n">F12</span><span class="p">.</span><span class="mi">5</span> <span class="p">)</span>
+  <span class="mi">31</span><span class="p">;</span> <span class="k">FORMAT</span><span class="p">(</span> <span class="mi">16</span><span class="n">H</span> <span class="n">TWO</span> <span class="kt">REAL </span><span class="n">ROOTS</span><span class="p">:,</span> <span class="n">F12</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="n">H</span> <span class="nb">AND</span> <span class="p">,</span> <span class="n">F12</span><span class="p">.</span><span class="mi">5</span> <span class="p">)</span>
+      <span class="k">END</span>
 </pre></div>
 
 </div>
@@ -12113,8 +12089,41 @@ a.anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <center>
+<H1><code>() => Nil</code></H1>
+</center>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center>
+<H1><code>true</code></H1>
+</center>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center>
+<H1><code>false</code><H1>
+</center>
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center>
 <H1> quote / athfhriotal <H1>
-<code>(quote (1 2 3)) => (1 2 3)</code>
+<code>(quote ()) => ()</code>
 </center>
 </div>
 </div>
@@ -12213,18 +12222,7 @@ a.anchor-link {
 </center>
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<center>
-<H1><code>Code == Data</code><H1>
-</center>
-</div>
-</div>
-</div></div></section><section>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12237,7 +12235,7 @@ a.anchor-link {
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">line</span> <span class="o">=</span> <span class="s1">&#39;(car (quote (1 2 3)))&#39;</span>
@@ -12283,10 +12281,10 @@ quote, &#34; (1 2 3)))&#34;
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">input_line</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="n">input_line</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">read_ahead</span><span class="p">(</span><span class="n">token</span><span class="p">):</span>
         <span class="k">if</span> <span class="s1">&#39;(&#39;</span> <span class="o">==</span> <span class="n">token</span><span class="p">:</span>
             <span class="n">L</span> <span class="o">=</span> <span class="p">[]</span>
@@ -12304,7 +12302,7 @@ quote, &#34; (1 2 3)))&#34;
     <span class="n">token1</span> <span class="o">=</span> <span class="n">input_line</span><span class="o">.</span><span class="n">next_token</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">read_ahead</span><span class="p">(</span><span class="n">token1</span><span class="p">)</span>
 
-<span class="n">tree</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">line_obj</span><span class="p">(</span><span class="s1">&#39;(car (quote (1 2 3)))&#39;</span><span class="p">))</span>
+<span class="n">tree</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">tokenize</span><span class="p">(</span><span class="s1">&#39;(car (quote (1 2 3)))&#39;</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
 </pre></div>
 
@@ -12331,7 +12329,7 @@ quote, &#34; (1 2 3)))&#34;
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="n">tree</span><span class="p">):</span>
@@ -12354,7 +12352,7 @@ quote, &#34; (1 2 3)))&#34;
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[9]:</div>
+<div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -12375,6 +12373,22 @@ quote, &#34; (1 2 3)))&#34;
 <div class="text_cell_render border-box-sizing rendered_html">
 <center>
 <H1> Áireamhán Example! <H1>
+</center>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center>
+<code>
+<H1><code>Github:<a href="https://github.com/neal-o-r">neal-o-r</a></H1></code>
+<H1><code>Twitter:<a href="https://twitter.com/neal_o_r">neal_o_r</a></H1></code>
+<H1><code>www:<a href="http://www.n-o-r.xyz">n-o-r.xyz</a></H1></code>
+<H1><code>pip3 install aireamhan</code></H1>
+</code>
 </center>
 </div>
 </div>
